@@ -1,6 +1,17 @@
-.PHONY: all clean
+.PHONY: all clean test
 
-all: calc
+ALL := calc calc-test
+
+all: $(ALL)
+
+calc: calc.o engine.o
+	$(CXX) -o $@ $^
+
+calc-test: test.o engine.o
+	$(CXX) -o $@ $^
+
+test: calc-test
+	@./calc-test
 
 clean:
-	rm -f calc
+	rm -f $(ALL) *.o

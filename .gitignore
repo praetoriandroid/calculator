@@ -1,3 +1,5 @@
 .idea
 .vscode
 calc
+calc-test
+*.o
